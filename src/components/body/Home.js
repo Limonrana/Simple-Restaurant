@@ -4,6 +4,7 @@ class Home extends Component {
     state = {};
 
     render() {
+        document.title = 'Restaurant App';
         return <div />;
     }
 }

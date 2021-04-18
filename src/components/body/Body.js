@@ -1,15 +1,18 @@
-import { Route } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import About from './About';
 import Contact from './Contact';
 import Home from './Home';
 import Menu from './Menu';
 
 const Body = () => (
-    <div>
-        <Route path="/" exact component={Home} />
-        <Route path="/menu" exact component={Menu} />
-        <Route path="/about" exact component={About} />
-        <Route path="/contact" exact component={Contact} />
+    <div className="App-container">
+        <Switch>
+            <Route path="/home" exact component={Home} />
+            <Route path="/menu" exact component={Menu} />
+            <Route path="/about" exact component={About} />
+            <Route path="/contact" exact component={Contact} />
+            <Redirect from="/" to="/home" />
+        </Switch>
     </div>
 );
 export default Body;

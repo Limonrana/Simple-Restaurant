@@ -1,8 +1,8 @@
 import { Card, CardBody, CardImg, CardText, CardTitle } from 'reactstrap';
 import LoadComments from './LoadComments';
 
-const DishDetail = ({ dish }) => {
-    const { name, image, description, price, comments } = dish;
+const DishDetail = ({ dish, comments }) => {
+    const { name, image, description, price } = dish;
     return (
         <div>
             <Card style={{ margin: '10px' }}>

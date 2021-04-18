@@ -8,9 +8,16 @@ const MenuItem = ({ dish, dishSelect }) => {
                 <CardBody style={{ padding: '.50rem' }}>
                     <CardImg width="100%" height="200px" alt={name} src={image} />
                     <CardImgOverlay
-                        style={{ backgroundColor: 'black', opacity: '0.5', paddingTop: '13%' }}
+                        style={{ backgroundColor: 'black', opacity: '0.5', paddingTop: '17%' }}
                     >
-                        <CardTitle style={{ color: 'white', fontSize: '50px', cursor: 'pointer' }}>
+                        <CardTitle
+                            style={{
+                                color: 'white',
+                                fontSize: '50px',
+                                cursor: 'pointer',
+                                textAlign: 'center',
+                            }}
+                        >
                             {name}
                         </CardTitle>
                     </CardImgOverlay>

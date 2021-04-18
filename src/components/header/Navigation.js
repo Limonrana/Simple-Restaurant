@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import { Link as NavLink } from 'react-router-dom';
-import { Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem } from 'reactstrap';
+import { Link } from 'react-router-dom';
+import { Collapse, NavbarToggler } from 'reactstrap';
+import '../../assets/header.css';
+import Logo from '../../assets/img/logo.png';
+// import { Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem } from 'reactstrap';
 
 class Navigation extends Component {
     state = {
@@ -16,36 +19,76 @@ class Navigation extends Component {
         const { isNavOpen } = this.state;
         return (
             <div>
-                <Navbar dark color="dark" expand="sm">
+                <div className="navigation-wrap bg-light start-header start-style">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-12">
+                                <nav className="navbar navbar-expand-md navbar-light">
+                                    <Link className="navbar-brand" to="/">
+                                        <img src={Logo} alt="logo" />
+                                    </Link>
+
+                                    <NavbarToggler onClick={this.navToggle} />
+
+                                    <Collapse isOpen={isNavOpen} navbar>
+                                        <ul className="navbar-nav ml-auto py-4 py-md-0">
+                                            <li className="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">
+                                                <Link className="nav-link" to="/">
+                                                    Home
+                                                </Link>
+                                            </li>
+                                            <li className="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                                <Link className="nav-link" to="/menu">
+                                                    Menu
+                                                </Link>
+                                            </li>
+                                            <li className="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                                <Link className="nav-link" to="/about">
+                                                    About Us
+                                                </Link>
+                                            </li>
+                                            <li className="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                                <Link className="nav-link" to="/contact">
+                                                    Contact Us
+                                                </Link>
+                                            </li>
+                                        </ul>
+                                    </Collapse>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/* <Navbar dark color="dark" expand="sm">
                     <div className="container">
                         <NavbarBrand href="/">Simple Restaurant</NavbarBrand>
                         <NavbarToggler onClick={this.navToggle} />
                         <Collapse isOpen={isNavOpen} navbar style={{ flexGrow: 'unset' }}>
-                            <Nav Navbar>
+                            <Nav navbar>
                                 <NavItem>
-                                    <NavLink to="/" className="nav-link active">
+                                    <Link to="/" className="nav-link active">
                                         Home
-                                    </NavLink>
+                                    </Link>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink to="/menu" className="nav-link">
+                                    <Link to="/menu" className="nav-link">
                                         Menu
-                                    </NavLink>
+                                    </Link>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink to="/about" className="nav-link">
+                                    <Link to="/about" className="nav-link">
                                         About
-                                    </NavLink>
+                                    </Link>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink to="/contact" className="nav-link">
+                                    <Link to="/contact" className="nav-link">
                                         Contact
-                                    </NavLink>
+                                    </Link>
                                 </NavItem>
                             </Nav>
                         </Collapse>
                     </div>
-                </Navbar>
+                </Navbar> */}
             </div>
         );
     }

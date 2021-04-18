@@ -1,5 +1,10 @@
-.App {
+.contact-heading {
   text-align: center;
+}
+
+.App-container {
+  margin-top: 5%;
+  margin-bottom: 3%;
 }
 
 .App-logo {
