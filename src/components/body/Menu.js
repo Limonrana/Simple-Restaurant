@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, CardColumns, Modal, ModalBody, ModalFooter } from 'reactstrap';
 import DISHES from '../../data/dishes';
 import DishDetail from './DishDetail';
 import MenuItem from './MenuItem';
@@ -7,14 +8,21 @@ class Menu extends React.Component {
     state = {
         dishes: DISHES,
         selectedDish: null,
+        modalOpen: false,
     };
 
     onDishSelect = (dish) => {
-        this.setState({ selectedDish: dish });
+        const { modalOpen } = this.state;
+        this.setState({ selectedDish: dish, modalOpen: !modalOpen });
+    };
+
+    toggleModal = () => {
+        const { modalOpen } = this.state;
+        this.setState({ modalOpen: !modalOpen });
     };
 
     render() {
-        const { dishes, selectedDish } = this.state;
+        const { dishes, selectedDish, modalOpen } = this.state;
         const menu = dishes.map((item) => (
             <MenuItem dish={item} key={item.id} dishSelect={() => this.onDishSelect(item)} />
         ));
@@ -27,10 +35,17 @@ class Menu extends React.Component {
         return (
             <div className="container">
                 <div className="row">
-                    <div className="col-6" style={{ height: '94vh', overflowY: 'auto' }}>
+                    <CardColumns className="columnCount" style={{ marginTop: '20px' }}>
                         {menu}
-                    </div>
-                    <div className="col-6">{dishDetail}</div>
+                    </CardColumns>
+                    <Modal isOpen={modalOpen}>
+                        <ModalBody>{dishDetail}</ModalBody>
+                        <ModalFooter>
+                            <Button color="secondary" onClick={this.toggleModal}>
+                                Close
+                            </Button>
+                        </ModalFooter>
+                    </Modal>
                 </div>
             </div>
         );

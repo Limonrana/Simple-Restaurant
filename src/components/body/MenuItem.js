@@ -4,7 +4,7 @@ const MenuItem = ({ dish, dishSelect }) => {
     const { name, image } = dish;
     return (
         <div>
-            <Card style={{ margin: '10px' }} onClick={dishSelect}>
+            <Card onClick={dishSelect}>
                 <CardBody style={{ padding: '.50rem' }}>
                     <CardImg width="100%" height="200px" alt={name} src={image} />
                     <CardImgOverlay
